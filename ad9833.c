@@ -50,7 +50,6 @@ void ad9833_send(uint8_t cmdH,uint8_t cmdL){
         FSYNC_Write(0);
         SPI_SendData(cmdH);
         SPI_SendData(cmdL);
-        while(!SPI_GetFlagStatus(SPI_FLAG_TXE));
         FSYNC_Write(1);
         _asm("nop");
 }
